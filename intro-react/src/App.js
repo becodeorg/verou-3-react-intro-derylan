@@ -52,9 +52,10 @@ const App = () => {
   return (
     <>
     <TodoList todos={todos} toggleTodo={toggleTodo}/>
-    <input ref={todoNameRef} type="text" />
-    <button onClick={handleAddTodo}>Add Todo</button>
-    <button onClick={handleClearTodos}>Clear Complete Todo</button>
+    <h1 className="text-3xl font-bold underline bg-blue-200">What do we have to do today?</h1>
+    <input ref={todoNameRef} type="text" className='border-2' />
+    <button className="border-2" onClick={handleAddTodo}>Add Todo</button>
+    <button className="border-2" onClick={handleClearTodos}>Clear Complete Todo</button>
     <div>{todos.filter(todo => !todo.complete).length} left to do</div>
     </>
   )
