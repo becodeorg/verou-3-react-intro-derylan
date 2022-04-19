@@ -8,7 +8,7 @@ function App() {
   const taskToDo = useRef();
   const LOCAL_STORAGE_KEY = 'taskApp'
   const [tasks, setTasks] = useState([]);
-  // const [completeTask, setCompleteTask] = useState([]);
+  const [completeTask, setCompleteTask] = useState([]);
   const id = uuidv4();
 
   useEffect(() => {
@@ -42,17 +42,19 @@ function App() {
   }
 
   const doneTask = () => {
-    const taskDone = tasks.filter(todoList => !todoList.complete);
-    setTasks(taskDone) ;
+    const taskDone = tasks.filter(taskList => !taskList.complete);
+    const taskComplete = tasks.filter(taskList => taskList.complete)
+    setTasks(taskDone);
+    const copyCompleteTask = [...completeTask, taskComplete];
+    setCompleteTask(copyCompleteTask);
   }
 
-  // const handleDoneTask = () => {
-  //   const displayCompleteTask = [...tasks];
-  //   const oldTask = displayCompleteTask.find(oldTask => oldTask.id === id);
-  //   oldTask.complete = !oldTask.complete;
-  //   setCompleteTask(displayCompleteTask);
-  //   console.log(displayCompleteTask);
-  // }
+  const handleDoneTask = (id) => {
+    const displayCompleteTask = [...tasks];
+    const oldTask = displayCompleteTask.filter(oldTask => oldTask.complete === true);
+    // oldTask.complete = !oldTask.complete;
+    setCompleteTask(oldTask);
+  }
 
   // const deleteTask = (id) => {
   //   setTasks(tasks.filter((todoList) => todoList.id !== id));
@@ -69,7 +71,7 @@ function App() {
         {tasks.length} <br />
         <Tasks tasks={tasks} toggleTask={toggleTask} />
         <Button btnName={'Complete'} onClick={doneTask} />
-        <CompleteTask onChange={''} />
+        <CompleteTask onChange={doneTask} handleDoneTask={handleDoneTask} />
       </div>
       <div></div>
     </div>

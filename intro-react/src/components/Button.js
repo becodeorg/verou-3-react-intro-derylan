@@ -1,6 +1,6 @@
 const Button = ({ btnName, onClick }) => {
     return (
-        <button className="border-2 m-2 radius-2" onClick={onClick}>{ btnName }</button>
+        <button className="border-2 m-2 p-2 rounded-xl bg-sky-500 hover:bg-sky-700" onClick={onClick}>{ btnName }</button>
     )
 }
 

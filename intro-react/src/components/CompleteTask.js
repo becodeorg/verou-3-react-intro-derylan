@@ -1,8 +1,8 @@
 import React from 'react'
 
-const CompleteTask = ({  onChange }) => {
+const CompleteTask = ({  onChange, donhandleDoneTaskeTask }) => {
     return (
-        <div  onChange={onChange}>
+        <div onChange={onChange}>
             <h2>Task completed:</h2>
                 <p></p>
         </div>
