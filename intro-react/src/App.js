@@ -47,14 +47,18 @@ function App() {
     setTasks(taskDone);
     const copyCompleteTask = [...completeTask, taskComplete];
     setCompleteTask(copyCompleteTask);
+    console.log(copyCompleteTask);
   }
 
-  const handleDoneTask = (id) => {
-    const displayCompleteTask = [...tasks];
-    const oldTask = displayCompleteTask.filter(oldTask => oldTask.complete === true);
-    // oldTask.complete = !oldTask.complete;
-    setCompleteTask(oldTask);
-  }
+  // const handleDoneTask = (id) => {
+  //   const displayCompleteTask = [...tasks];
+  //   if (displayCompleteTask.complete === 'true') {
+      
+  //   }
+  //   const oldTask = displayCompleteTask.filter(oldTask => oldTask.complete === true);
+  //   oldTask.complete = !oldTask.complete;
+  //   setCompleteTask(oldTask);
+  // }
 
   // const deleteTask = (id) => {
   //   setTasks(tasks.filter((todoList) => todoList.id !== id));
@@ -71,7 +75,7 @@ function App() {
         {tasks.length} <br />
         <Tasks tasks={tasks} toggleTask={toggleTask} />
         <Button btnName={'Complete'} onClick={doneTask} />
-        <CompleteTask onChange={doneTask} handleDoneTask={handleDoneTask} />
+        <CompleteTask onChange={doneTask} completeTask={completeTask} />
       </div>
       <div></div>
     </div>
